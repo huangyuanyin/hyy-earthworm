@@ -48,14 +48,14 @@ function parse(text) {
       if (isChinese(element)) {
         chinese += element
         while (isChinese(textList[i + 1])) {
-          chinese += element
+          chinese += "，" + textList[i + 1]
           i++
         }
         data.chinese = chinese
       } else {
         englishAndSoundMark += element
         while (textList[i + 1] && !isChinese(textList[i + 1])) {
-          englishAndSoundMark += element
+          englishAndSoundMark += " " + textList[i + 1]
           i++
         }
         const { english, soundMark } = parseEnglishAndSoundMark(englishAndSoundMark)
