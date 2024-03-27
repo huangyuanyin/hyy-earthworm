@@ -1,6 +1,12 @@
 import { ChangeEvent, useState } from 'react'
 
-const Question = ({ questionWord, onCheckAnswer }: { questionWord: string; onCheckAnswer: (userInput: string) => void }) => {
+const Question = ({
+  word,
+  onCheckAnswer,
+}: {
+  word: string
+  onCheckAnswer: (userInput: string) => void
+}) => {
   const [inputValue, setInputValue] = useState('')
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -15,8 +21,14 @@ const Question = ({ questionWord, onCheckAnswer }: { questionWord: string; onChe
 
   return (
     <div>
-      {questionWord}
-      <input className="bg-red-500" type="text" value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} />
+      {word}
+      <input
+        className="bg-red-500"
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+      />
     </div>
   )
 }

@@ -1,4 +1,12 @@
-const Answer = ({ word, soundmark }: { word: string; soundmark: string }) => {
+const Answer = ({
+  word,
+  soundmark,
+  onToNextStatement,
+}: {
+  word: string
+  soundmark: string
+  onToNextStatement: () => void
+}) => {
   const audioSrc = `http://dict.youdao.com/dictvoice?type=0&audio=${word}`
 
   return (
@@ -10,7 +18,7 @@ const Answer = ({ word, soundmark }: { word: string; soundmark: string }) => {
       <audio controls autoPlay>
         <source src={audioSrc} type="audio/mpeg" />
       </audio>
-      <button>next</button>
+      <button onClick={() => onToNextStatement()}>next</button>
     </div>
   )
 }
