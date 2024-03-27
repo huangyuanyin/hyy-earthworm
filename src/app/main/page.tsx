@@ -23,8 +23,9 @@ const Main = () => {
   }
 
   useEffect(() => {
+    const basePath = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3000/api'
     async function fetchData() {
-      const response = await fetch('/api/course')
+      const response = await fetch(`${basePath}/course`)
       const data = await response.json()
       currentCourse.current = data.data
       updateWord()
